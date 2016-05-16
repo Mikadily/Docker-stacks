@@ -1,0 +1,12 @@
+mariadb:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: examplepass
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin
+  links:
+    - mariadb
+  ports:
+    - 8181:80
+  environment:
+    PMA_HOST: mariadb
